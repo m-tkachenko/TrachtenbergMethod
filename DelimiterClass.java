@@ -3,28 +3,28 @@ package com.salo;
 public class DelimiterClass {
 
     public static void defaultDelimiter() {
-        String delimiter = "";
+        StringBuilder delimiter = new StringBuilder();
 
         for (int i = 0; i < 50; i++) {
-            delimiter += "<>";
+            delimiter.append("<>");
         }
         System.out.println("\n" + delimiter + "\n");
     }
 
     public static void questionDelimiter() {
-        String delimiter = "";
+        StringBuilder delimiter = new StringBuilder();
 
         for (int i = 0; i < 100; i++) {
-            delimiter += "?";
+            delimiter.append("?");
         }
         System.out.println("\n" + delimiter + "\n");
     }
 
     public static void endDelimiter() {
-        String delimiter = "";
+        StringBuilder delimiter = new StringBuilder();
 
         for (int i = 0; i < 100; i++) {
-            delimiter += "~";
+            delimiter.append("~");
         }
         System.out.println("\n" + delimiter + "\n");
     }
