@@ -26,85 +26,22 @@ public class TrainingClass {
         return randomizeNumber.toString();
     }
 
-    public static void multiplyEleven () {
-        int number;
-        int win = 0;
-        int tasksResult = 0;
-        int tasks = 0;
-        Scanner tasksScan = new Scanner(System.in);
-
-        System.out.println("Ok let's start in multiply by 11 :-)\n");
-
-        System.out.print("How many tasks per section? Enter here: ");
-        tasks = tasksScan.nextInt();
-
-        System.out.print("With how many digits in the number will we start? Enter here: ");
-        int digits = tasksScan.nextInt();
-
-        DelimiterClass.defaultDelimiter();
-
-        for(;;) {
-
-            for (int i = 0; i < tasks; i++) {
-                number = Integer.parseInt(random(digits));
-
-                System.out.println("Number for multiplying by 11 is: " + number);
-
-                System.out.print("Print your answer: ");
-                int enter = tasksScan.nextInt();
-
-                if (enter == number * 11) {
-
-                    System.out.println("Wow, correct\n");
-                    win++;
-                }
-                else {
-                    System.out.println("Lose, right answer is: " + number * 11 + "\n");
-                }
-            }
-
-            DelimiterClass.questionDelimiter();
-
-            System.out.print("Stop? Enter( y or n ): ");
-            String stop = tasksScan.next();
-            tasksResult += tasks;
-
-            if (stop.equals("y")) {
-                System.out.println("Oki-doki, your score is " + win + "/" + tasksResult);
-
-                DelimiterClass.endDelimiter();
-                return;
-            }
-            else if (stop.equals("n")) {
-                System.out.println("Yeah, show must go on! Your score is " + win + "/" + tasksResult);
-                digits++;
-
-                DelimiterClass.questionDelimiter();
-            }
-            else {
-                System.out.println("Uupsi-dupsi, eror");
-                DelimiterClass.endDelimiter();
-                break;
-            }
-
-        }
-    }
-
-    public static void multiplyTwelve() {
-
+    public static void multiply(int multiplier) {
         int number = 0;
         int win = 0;
         int tasksResult = 0;
         int tasks = 0;
+        int digits = 0;
+
         Scanner tasksScan = new Scanner(System.in);
 
-        System.out.println("Ok let's start in multiply by 12 :-)\n");
+        System.out.println("Ok let's start in multiply by " + multiplier + " :-)\n");
 
         System.out.print("How many tasks per section? Enter here: ");
         tasks = tasksScan.nextInt();
 
         System.out.print("With how many digits in the number will we start? Enter here: ");
-        int digits = tasksScan.nextInt();
+        digits = tasksScan.nextInt();
 
         DelimiterClass.defaultDelimiter();
 
@@ -112,9 +49,9 @@ public class TrainingClass {
 
             for (int i = 0; i < tasks; i++) {
                 number = Integer.parseInt(random(digits));
-                int multiplyNumber = number * 12;
+                int multiplyNumber = number * multiplier;
 
-                System.out.println("Number for multiplying by 12 is: " + number);
+                System.out.println("Number for multiplying by " + multiplier + " is: " + number);
 
                 System.out.print("Print your answer: ");
                 int enter = tasksScan.nextInt();
@@ -138,7 +75,7 @@ public class TrainingClass {
             if (stop.equals("y")) {
                 System.out.println("Oki-doki, your score is " + win + "/" + tasksResult);
 
-                DelimiterClass.endDelimiter();
+                DelimiterClass.questionDelimiter();
                 return;
             }
             else if (stop.equals("n")) {
@@ -148,25 +85,10 @@ public class TrainingClass {
                 DelimiterClass.questionDelimiter();
             }
             else {
-                System.out.println("Uupsi-dupsi, eror");
-                DelimiterClass.endDelimiter();
+                System.out.println("Uupsi-dupsi, error");
+                DelimiterClass.questionDelimiter();
                 break;
             }
-        }
-    }
-    public static void main (int choice){
-        switch (choice){
-            case 1:
-                multiplyEleven();
-                break;
-
-            case 2:
-                multiplyTwelve();
-                break;
-
-            default:
-                System.out.println("Eror");
-                break;
         }
     }
 }
